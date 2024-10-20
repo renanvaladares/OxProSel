@@ -13,8 +13,15 @@ function enviarDadosParaGoogleSheets(nome, cargo) {
     const codigoUnico = gerarCodigoUnico();
     
     // Exibir o código único na tela
-    document.getElementById('codigoUnico').innerText = codigoUnico;
-    document.getElementById('codigoUnicoContainer').style.display = 'block';
+    const codigoUnicoElement = document.getElementById('codigoUnico');
+    const codigoUnicoContainer = document.getElementById('codigoUnicoContainer');
+
+    if (codigoUnicoElement && codigoUnicoContainer) { // Verifica se os elementos existem
+        codigoUnicoElement.innerText = codigoUnico;
+        codigoUnicoContainer.style.display = 'block'; // Somente se o elemento existir
+    } else {
+        console.error("Elemento não encontrado: 'codigoUnico' ou 'codigoUnicoContainer'");
+    }
 
     // Configurar a requisição para o Google Apps Script
     const url = 'https://script.google.com/macros/s/AKfycbxGtyf6TvGvzYCTgbna2kbNLBsiFvr8IVP3so-17zdqlJo4xo2LESH9VzeptPsJQcQ/exec'; // Insira a URL do seu Google Apps Script
@@ -56,4 +63,3 @@ document.getElementById('copyButton').addEventListener('click', function() {
         alert('Código copiado!');
     });
 });
-    
