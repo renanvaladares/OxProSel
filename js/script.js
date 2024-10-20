@@ -16,7 +16,8 @@ function enviarDadosParaGoogleSheets(nome, cargo) {
     const codigoUnicoElement = document.getElementById('codigoUnico');
     const codigoUnicoContainer = document.getElementById('codigoUnicoContainer');
 
-    if (codigoUnicoElement && codigoUnicoContainer) { // Verifica se os elementos existem
+    // Verifica se os elementos existem antes de usá-los
+    if (codigoUnicoElement && codigoUnicoContainer) {
         codigoUnicoElement.innerText = codigoUnico;
         codigoUnicoContainer.style.display = 'block'; // Somente se o elemento existir
     } else {
