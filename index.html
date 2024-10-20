@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Candidatos</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link para o CSS na pasta css -->
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Candidatos</h1>
+        <form id="cadastroForm">
+            <div class="input-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="input-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo desejado" required>
+            </div>
+            <button type="submit">Cadastrar</button>
+        </form>
+        
+        <div id="resultadoCadastro" class="resultado" style="display: none;">
+            <h2>Cadastro Realizado</h2>
+            <p>Nome: <span id="nomeCandidato"></span></p>
+            <p>Cargo: <span id="cargoCandidato"></span></p>
+            <p>Código Único: <span id="codigoUnico"></span></p>
+            <button id="copyButton">Copiar Código</button>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script> <!-- Link para o JavaScript na pasta js -->
+</body>
+</html>
