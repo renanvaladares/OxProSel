@@ -1,11 +1,21 @@
-document.getElementById('cadastroForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    const nome = document.getElementById('nome').value;
-    const cargo = document.getElementById('cargo').value;
+        const nome = document.getElementById('nome').value;
+        const cargo = document.getElementById('cargo').value;
 
-    // Chamar função para enviar os dados para o Google Sheets
-    enviarDadosParaGoogleSheets(nome, cargo);
+        // Chamar função para enviar os dados para o Google Sheets
+        enviarDadosParaGoogleSheets(nome, cargo);
+    });
+
+    // Função para copiar o código único para a área de transferência
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const codigo = document.getElementById('codigoUnico').innerText;
+        navigator.clipboard.writeText(codigo).then(() => {
+            alert('Código copiado!');
+        });
+    });
 });
 
 function enviarDadosParaGoogleSheets(nome, cargo) {
@@ -56,11 +66,3 @@ function enviarDadosParaGoogleSheets(nome, cargo) {
 function gerarCodigoUnico() {
     return 'USR' + Math.floor(Math.random() * 1000000);
 }
-
-// Função para copiar o código único para a área de transferência
-document.getElementById('copyButton').addEventListener('click', function() {
-    const codigo = document.getElementById('codigoUnico').innerText;
-    navigator.clipboard.writeText(codigo).then(() => {
-        alert('Código copiado!');
-    });
-});
